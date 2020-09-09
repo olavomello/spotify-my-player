@@ -29,3 +29,5 @@
    <li>Playing visor</li>
    <li>Playlist</li>
 </ul>
+
+Made with ♥ by Olavo Mello :wave: [WhatsApp Me](https://wa.me/5516981657459)
