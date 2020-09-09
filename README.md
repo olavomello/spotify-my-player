@@ -1,5 +1,5 @@
 <h1 align="center">My Player : Spotify</h1>
-<p align="center">Spotfy sometimes is the best company to developers and designer, right ? Why not enjoy this amazing app to learn, coding your onw **Spotify Player Mood** ? Have fun :)</p>
+<p align="center">Spotify sometimes is the best company to developers and designer, right ? Why not enjoy this amazing app to learn, coding your onw **Spotify Player Mood** ? Have fun :)</p>
 
 <p align="center">
   <img alt="Coding..." src="https://img.shields.io/badge/last%20modified-today-brightgreen"/>
