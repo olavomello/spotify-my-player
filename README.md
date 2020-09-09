@@ -21,7 +21,7 @@
   <a href="https://agenciadix.com.br" target="_blank">Agência Dix</a>
 </p>
 
-## :a1: Sobre o projeto
+## Sobre o projeto
 
 <p>Consuming Spotify API with React ;)</p>
 <ul>
