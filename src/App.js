@@ -5,11 +5,12 @@ import {
   faStop,
   faForward,
   faBackward,
+  faMusic,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App.css";
 
-library.add(faPlay, faStop, faForward, faBackward);
+library.add(faPlay, faStop, faForward, faBackward, faMusic);
 
 function App() {
   return (
@@ -20,7 +21,13 @@ function App() {
         </header>
         <aside>
           <div className="Playing">
+            <h5>Stopped</h5>
+            <h2>
+              <FontAwesomeIcon icon="music" />
+            </h2>
             <h1>Música A</h1>
+            <h6>00:00:00</h6>
+            <div className="Reflex"></div>
           </div>
           <div className="Nav">
             <button className="prev">

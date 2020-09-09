@@ -51,6 +51,7 @@ header h4:after{
   background: rgb(30,215,96);
   background: linear-gradient(0deg, rgba(30,215,96,1) 0%, rgba(30,189,87,1) 100%);
   display: block;
+  overflow: hidden;
   margin:15% auto;
   border-radius:6px;
   box-shadow: 0 0 10px #000000dd;
@@ -60,6 +61,7 @@ header h4:after{
   -moz-box-shadow: inset 0 0 10px #1b8441;
   box-shadow: inset 0 0 10px #1b8441;  
 }
+
 .Player .Playing,
 .Player .Playlist{
   display: block;
@@ -73,29 +75,99 @@ header h4:after{
   border-radius: 5px;
   color:#fff;
   padding:3% 0;
+  overflow:hidden;
 }
+.Player .Playing h1{
+  position: relative;
+  z-index: 5;
+  cursor:pointer;
+}
+.Player .Playing h1:hover{
+  color:#3cb567;
+}
+.Player .Playing h2{
+  width:20px;
+  margin:55px 10px;
+  position: absolute;
+  font-size:14px;
+  opacity: 0.5;
+}
+.Player .Playing h5, 
+.Player .Playing h6{
+  font-size:10px;
+  line-height: 10px;
+  font-weight: normal;
+  margin:0px 10px;
+  padding:0;
+  position: absolute;
+  opacity: 0.5;
+}
+.Player .Playing h6{
+  margin:-72px 70px;
+  right:0;
+}
+.Player .Playing h2:hover,
+.Player .Playing h3:hover,
+.Player .Playing h4:hover,
+.Player .Playing h5:hover, 
+.Player .Playing h6:hover{
+  opacity: 1;
+}
+.Player .Playing:after{
+  content: ".";
+  font-size:0px;
+  line-height: 0;
+  display: block;
+  color:#000;
+  width: 100%;
+  height: 20px;
+  z-index: 2;
+  position: relative;
+  background:#0000001a;
+  margin-top:-5px;
+  border-radius:5px;
+}
+.Player .Playing .Reflex{
+  position: relative;
+  width: 500px;
+  height:100px;
+  background:#ffffff10;
+  transform: rotate(50deg);
+  top:-100px;
+  left: -130px;
+  opacity: 0.5; 
+}
+
+/* Nav */
 .Player .Nav{
   display: block;
   margin:0 auto;
-  padding:5px;
+  padding:2px;
   margin-bottom:15px;
-  margin-top:-30px;
+  margin-top:-35px;
   background:#fff;
   width:10%;
-  min-width: 150px;
+  min-width: 100px;
   border-radius:4px;
   font-size:23px;
   box-shadow: 0 0 10px #000000dd;
   /* Sombra interna */
   -webkit-box-shadow: inset 0 0 10px #ccc;
   -moz-box-shadow: inset 0 0 10px #ccc;
-  box-shadow: inset 0 0 10px #ccc;   
+  box-shadow: inset 0 0 10px #ccc;
+  z-index: 10;
+  position: relative;   
 }
 .Player .Nav button{
   border:0;
   background:none;
   opacity: 0.5;
   cursor: pointer;
+  outline: none;
+}
+/* Botões específicos */
+.Player .Nav button.stop{
+  display:none;
 }
 .Player .Nav button:hover{
   opacity: 1;
