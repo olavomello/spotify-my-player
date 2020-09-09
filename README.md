@@ -6,7 +6,7 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/olavomello/spotify-my-player?color=%2304D361">
   <img alt="flat" src="https://img.shields.io/badge/style-flat-green?logo=appveyor&amp;style=flat">
   <a href="https://agenciadix.com.br">
-    <img alt="Made with Love" src="https://img.shields.io/badge/Made%20with-Love-red">
+    <img alt="Maintainer" src="https://img.shields.io/badge/maintainer-olavo%20mello-blue">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
@@ -18,16 +18,18 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/olavo-mello-a6262a72/" target="_blank">Sobre mim</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://agenciadix.com.br" target="_blank">Agência Dix</a>
+  <a href="https://agenciadix.com.br" target="_blank" title="Agência de Marketing Digital">Agência Dix</a>
 </p>
 
 ## Sobre o projeto
 
 <p>Consuming Spotify API with React ;)</p>
 <ul>
-   <li>Dynamic player</li>
-   <li>Playing visor</li>
-   <li>Playlist</li>
+   <li>Design : Dynamic player</li>
+   <li>Design : Playing visor</li>
+   <li>Design : Playlist</li>
+   <li>Code : Consuming Spotify API</li>
+   <li>Code : Manipulating data</li>
 </ul>
 
 Made with ♥ by Olavo Mello :wave: [WhatsApp Me](https://wa.me/5516981657459)
