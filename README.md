@@ -14,14 +14,14 @@
 </p>
 
 <p align="center">
-  <a href="#a1-sobre-o-projeto">Sobre o projeto</a>
+  <a href="#a1-sobre-o-projeto">About project</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/olavo-mello-a6262a72/" target="_blank">Sobre mim</a>
+  <a href="https://www.linkedin.com/in/olavo-mello-a6262a72/" target="_blank">About Me</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://agenciadix.com.br" target="_blank" title="Agência de Marketing Digital, SEO, SEM e APPS">Agência Dix</a>
 </p>
 
-## Sobre o projeto
+## About project
 
 <p>Consuming Spotify API with React ;)</p>
 <ul>
