@@ -1,38 +1,125 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Kufam&display=swap');
+@import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p');
+
+*{
+  transition: all 0.3s ease-out;
+}
+body{
+  background:#333;
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  vertical-align: middle;
+  font-family: 'Kufam', cursive;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex:1;
 }
-
-.App-link {
-  color: #61dafb;
+header {
+  color:#fff;
+  text-shadow: 1px 1px #000000c0;
+  border-bottom:1px solid #1b844144;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header h4{
+  margin:4px;
+  padding:2px;
+  font-size:11px;
+  font-weight: normal;
+}
+header h4:before, 
+header h4:after{
+  content:"...";
+  display: inline-block;
+  color:#fff;
+  width:15px;
+  height:15px;
+  font-size:20px;
+  line-height: 10px;
+  position: relative;
+  top:-2px;
+}
+header h4:before{
+  margin-right: 15px;
+}
+header h4:after{
+  margin-left: 15px;
+}
+.Player{
+  width:80%;
+  height:300px;
+  background: rgb(30,215,96);
+  background: linear-gradient(0deg, rgba(30,215,96,1) 0%, rgba(30,189,87,1) 100%);
+  display: block;
+  margin:15% auto;
+  border-radius:6px;
+  box-shadow: 0 0 10px #000000dd;
+  border:1px solid #3cb567;
+  /* Sombra interna */
+  -webkit-box-shadow: inset 0 0 10px #1b8441;
+  -moz-box-shadow: inset 0 0 10px #1b8441;
+  box-shadow: inset 0 0 10px #1b8441;  
+}
+.Player .Playing,
+.Player .Playlist{
+  display: block;
+  width:96%;
+  margin:0 2%;
+  margin-bottom: 5%;
+}
+.Player .Playing{
+  height: 70px;
+  background: #000;
+  border-radius: 5px;
+  color:#fff;
+  padding:3% 0;
+}
+.Player .Nav{
+  display: block;
+  margin:0 auto;
+  padding:5px;
+  margin-bottom:15px;
+  margin-top:-30px;
+  background:#fff;
+  width:10%;
+  min-width: 150px;
+  border-radius:4px;
+  font-size:23px;
+  box-shadow: 0 0 10px #000000dd;
+  /* Sombra interna */
+  -webkit-box-shadow: inset 0 0 10px #ccc;
+  -moz-box-shadow: inset 0 0 10px #ccc;
+  box-shadow: inset 0 0 10px #ccc;   
+}
+.Player .Nav button{
+  border:0;
+  background:none;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.Player .Nav button:hover{
+  opacity: 1;
+}
+.Player .Playlist ol{
+  border-radius: 5px;
+  list-style: none;
+  text-align: left;
+  padding:0;
+  margin:0;
+  color:#fff;
+  font-size:12px;
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15449929971988796) 100%);  
+  border:1px solid #0000000f;  
+  height:120px;
+  overflow:auto;
+}
+.Player .Playlist ol li{
+  display: block;
+  border-bottom: 1px solid #ffffff3f;
+  padding: 4px;
+  opacity: 0.5;
+  cursor:pointer;
+}
+.Player .Playlist ol li:hover{
+ opacity: 1;
 }
