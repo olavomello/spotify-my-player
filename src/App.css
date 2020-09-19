@@ -166,9 +166,6 @@ header h4:after{
   outline: none;
 }
 /* Botões específicos */
-.Player .Nav button.stop{
-  display:none;
-}
 .Player .Nav button:hover{
   opacity: 1;
 }
@@ -194,4 +191,11 @@ header h4:after{
 }
 .Player .Playlist ol li:hover{
  opacity: 1;
+}
+.Player .Playlist ol li button{
+  border:0;
+  background: transparent;
+  display: block;
+  color:#fff;
+  font-size:12px;  
 }
