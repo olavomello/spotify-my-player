@@ -19,7 +19,6 @@ body{
 header {
   color:#fff;
   text-shadow: 1px 1px #000000c0;
-  border-bottom:1px solid #1b844144;
 }
 header h4{
   margin:4px;
@@ -164,6 +163,7 @@ header h4:after{
   opacity: 0.5;
   cursor: pointer;
   outline: none;
+  cursor:pointer;
 }
 /* Botões específicos */
 .Player .Nav button:hover{
@@ -198,4 +198,13 @@ header h4:after{
   display: block;
   color:#fff;
   font-size:12px;  
+  width:100%;
+  text-align: left;
+  padding:0;
+  margin:0;
+  outline: none;
+  cursor:pointer;
+}
+.Player Player{
+  display:none;
 }

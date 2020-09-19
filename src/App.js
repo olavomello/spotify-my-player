@@ -14,9 +14,13 @@ import "./App.css";
 // Fontaweson
 library.add(faPlay, faStop, faForward, faBackward, faMusic);
 
+const { PlayPause, MuteUnmute } = controls;
+
 function App() {
-  const [isPlaying, setPlaying] = useState(false);
-  const [playingName, setPlayingName] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+
+  let playingId = 1;
 
   // Fakeplaylist **
   let playlist = [
@@ -47,23 +51,24 @@ function App() {
   ];
 
   // Funcs
-  function PlayerSet(id) {
-    console.log("Musica : " + id);
-    setPlayingName("Musica : " + id);
-  }
-  function PlayerPrev() {
-    console.log("Player : Prev");
-  }
-  function PlayerPlay() {
-    console.log("Player : Play");
-    setPlaying(true);
+  function PlayerPlay(id) {
+    if (!id || id === undefined || id <= 0) id = 1;
+    setLoading(false);
   }
   function PlayerStop() {
-    console.log("Player : Stop");
-    setPlaying(false);
+    setIsPlaying(false);
+  }
+  function PlayerPrev() {
+    playingId--;
+    if (playingId <= 0) playingId = playlist.length;
+
+    PlayerPlay(playingId);
   }
   function PlayerNext() {
-    console.log("Player : Next");
+    playingId++;
+    if (playingId >= playlist.length) playingId = 1;
+
+    PlayerPlay(playingId);
   }
 
   return (
@@ -78,8 +83,14 @@ function App() {
             <h2>
               <FontAwesomeIcon icon="music" />
             </h2>
-            <h1>{isPlaying ? playingName : "Loading..."}</h1>
-            <h6>00:00:00</h6>
+            <h1>
+              {isPlaying
+                ? playlist[playingId].name
+                : isLoading
+                ? "Loading..."
+                : ""}
+            </h1>
+            <h6>{isPlaying ? "00:00:00" : ""}</h6>
             <div className="Reflex"></div>
           </div>
           <div className="Nav">
@@ -101,9 +112,9 @@ function App() {
           </div>
           <div className="Playlist">
             <ol>
-              {playlist.map((row) => (
-                <li>
-                  <button>{row.name}</button>
+              {playlist.map((m, index) => (
+                <li key={index}>
+                  <button>{m.name}</button>
                 </li>
               ))}
             </ol>
