@@ -136,6 +136,15 @@ header h4:after{
   left: -130px;
   opacity: 0.5; 
 }
+.Player .Cover {
+  float: right;
+  height: 80%;
+  margin: 15px 13px;
+  border-radius: 5px;
+  border: 1px solid #f0f0f06b;
+  display: inline-block;
+  overflow: hidden;
+}
 
 /* Nav */
 .Player .Nav{

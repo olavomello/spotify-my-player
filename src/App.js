@@ -14,16 +14,15 @@ import "./App.css";
 // Fontaweson
 library.add(faPlay, faStop, faForward, faBackward, faMusic);
 
-const { PlayPause, MuteUnmute } = controls;
-
 function App() {
+  const { PlayPause, MuteUnmute } = controls;
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setLoading] = useState(true);
-
-  let playingId = 1;
+  const [music, setMusic] = useState(0);
+  let [playingId, setplayingId] = useState(0);
 
   // Fakeplaylist **
-  let playlist = [
+  const playlist = [
     {
       id: 1,
       name: "In the Moment of Inspiration",
@@ -51,24 +50,30 @@ function App() {
   ];
 
   // Funcs
-  function PlayerPlay(id) {
-    if (!id || id === undefined || id <= 0) id = 1;
+  function PlayerPlay() {
+    console.log(playingId);
+
+    setMusic(playlist[playingId]);
     setLoading(false);
+    setIsPlaying(true);
   }
   function PlayerStop() {
     setIsPlaying(false);
+    setLoading(false);
   }
   function PlayerPrev() {
     playingId--;
-    if (playingId <= 0) playingId = playlist.length;
+    if (playingId <= 0) playingId = playlist.length - 1;
 
-    PlayerPlay(playingId);
+    setplayingId(playingId);
+    PlayerPlay();
   }
   function PlayerNext() {
     playingId++;
-    if (playingId >= playlist.length) playingId = 1;
+    if (playingId > playlist.length) playingId = 0;
 
-    PlayerPlay(playingId);
+    setplayingId(playingId);
+    PlayerPlay();
   }
 
   return (
@@ -80,33 +85,42 @@ function App() {
         <aside>
           <div className="Playing">
             <h5>{isPlaying ? "Playing" : "Stopped"}</h5>
-            <h2>
-              <FontAwesomeIcon icon="music" />
-            </h2>
-            <h1>
-              {isPlaying
-                ? playlist[playingId].name
-                : isLoading
-                ? "Loading..."
-                : ""}
-            </h1>
+            {isPlaying ? <img className="Cover" src={music.cover} /> : ""}
+            <h2>{isPlaying ? <FontAwesomeIcon icon="music" /> : ""}</h2>
+            <h1>{isPlaying ? music.name : isLoading ? "Loading..." : ""}</h1>
             <h6>{isPlaying ? "00:00:00" : ""}</h6>
             <div className="Reflex"></div>
           </div>
           <div className="Nav">
-            <button className="prev" title="Anterior" onClick={PlayerPrev}>
+            <button
+              className="prev"
+              title="Anterior"
+              onClick={(e) => PlayerPrev()}
+            >
               <FontAwesomeIcon icon="backward" />
             </button>
             {!isPlaying ? (
-              <button className="play" title="Play" onClick={PlayerPlay}>
+              <button
+                className="play"
+                title="Play"
+                onClick={(e) => PlayerPlay(playingId)}
+              >
                 <FontAwesomeIcon icon="play" />
               </button>
             ) : (
-              <button className="stop" title="Stop" onClick={PlayerStop}>
+              <button
+                className="stop"
+                title="Stop"
+                onClick={(e) => PlayerStop()}
+              >
                 <FontAwesomeIcon icon="stop" />
               </button>
             )}
-            <button className="next" title="Próxima" onClick={PlayerNext}>
+            <button
+              className="next"
+              title="Próxima"
+              onClick={(e) => PlayerNext()}
+            >
               <FontAwesomeIcon icon="forward" />
             </button>
           </div>
@@ -114,7 +128,7 @@ function App() {
             <ol>
               {playlist.map((m, index) => (
                 <li key={index}>
-                  <button>{m.name}</button>
+                  <button onClick={(e) => PlayerPlay(m.id)}>{m.name}</button>
                 </li>
               ))}
             </ol>
