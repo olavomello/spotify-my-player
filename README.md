@@ -29,7 +29,7 @@
   </a>
 </p>
 
-<p>My own MP3 Player with React ;)</p>
+<p>My own MP3 Player with JavaScript / React, CSS, HTML5 ;)</p>
 <ul>
    <li>Dynamic player</li>
    <li>Playing visor</li>
