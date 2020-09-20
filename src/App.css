@@ -59,7 +59,7 @@ header h4:after{
   margin-left: 15px;
 }
 .Player{
-  width:80%;
+  width:70%;
   height:300px;
   background: rgb(30,215,96);
   background: linear-gradient(0deg, rgba(30,215,96,1) 0%, rgba(30,189,87,1) 100%);
@@ -124,10 +124,11 @@ header h4:after{
   opacity: 0.5;
 }
 .Player .Playing h6 {
-  left: 30px;
-  top: 13px;
+  left: 24px;
+  top: 12px;
   position: relative;
   float: left;
+  font-size: 8px;
 }
 .Player .Playing h2:hover,
 .Player .Playing h3:hover,

@@ -19,6 +19,7 @@ function App() {
   const [music, setMusic] = useState(0);
   const [isCompact, setIsCompact] = useState(false);
   let [playingId, setplayingId] = useState(0);
+  let [time, setTime] = useState("00:00:00");
 
   // Fakeplaylist **
   const playlist = [
@@ -51,7 +52,39 @@ function App() {
   // Funcs
   useEffect(() => {
     PlayerPlay();
+    timerStart();
   }, [playingId]);
+
+  // Format
+  function timeFormat(sec) {
+    let sec_num = parseInt(sec, 10);
+    let hours = Math.floor(sec_num / 3600);
+    let minutes = Math.floor((sec_num - hours * 3600) / 60);
+    let seconds = sec_num - hours * 3600 - minutes * 60;
+
+    if (hours < 10) {
+      hours = "0" + hours;
+    }
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    return hours + ":" + minutes + ":" + seconds;
+  }
+
+  function timerStart() {
+    setInterval(() => {
+      const mp3Player = document.getElementById("mp3Player");
+
+      let timeNow = Math.round(mp3Player.currentTime);
+      let timeTotal = Math.round(mp3Player.duration);
+
+      setTime(timeFormat(timeNow) + " / " + timeFormat(timeTotal));
+    }, 1000);
+  }
 
   function PlayerPlay(id) {
     setMusic(playlist[playingId]);
@@ -90,9 +123,9 @@ function App() {
             {isPlaying ? <img className="Cover" src={music.cover} /> : ""}
             <h2>{isPlaying ? <FontAwesomeIcon icon="music" /> : ""}</h2>
             <h1>{isPlaying ? music.name : isLoading ? "Loading..." : ""}</h1>
-            <h6>{isPlaying ? "00:00:00" : ""}</h6>
+            <h6>{isPlaying ? time : ""}</h6>
             <div className="Reflex"></div>
-            {isPlaying ? <audio src={music.url} autoPlay /> : ""}
+            {isPlaying ? <audio id="mp3Player" src={music.url} autoPlay /> : ""}
           </div>
           <div className="Nav">
             <button
