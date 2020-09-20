@@ -111,6 +111,11 @@ function App() {
         const progressBar = document.getElementById("ProgressBarNow");
         let porc = Math.round((timeNow / timeTotal) * 100);
         progressBar.style.width = porc + "%";
+
+        // Jump to next music
+        if (porc >= 100) {
+          PlayerNext();
+        }
       } catch (ex) {
         clearInterval(tInter);
         setTime("00:00:00 / 00:00:00");
@@ -127,7 +132,7 @@ function App() {
     // Set active music
     playlist.map((m, index) => {
       var music_active = document.getElementById("music-" + index);
-      if (index == playingId) {
+      if (index === playingId) {
         music_active.className = "active";
       } else {
         music_active.className = "";
