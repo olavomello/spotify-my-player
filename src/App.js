@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Media, Player, controls } from "react-media-player";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faPlay,
@@ -15,7 +14,6 @@ import "./App.css";
 library.add(faPlay, faStop, faForward, faBackward, faMusic);
 
 function App() {
-  const { PlayPause, MuteUnmute } = controls;
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const [music, setMusic] = useState(0);
@@ -94,6 +92,7 @@ function App() {
             <h1>{isPlaying ? music.name : isLoading ? "Loading..." : ""}</h1>
             <h6>{isPlaying ? "00:00:00" : ""}</h6>
             <div className="Reflex"></div>
+            {isPlaying ? <audio src={music.url} autoPlay /> : ""}
           </div>
           <div className="Nav">
             <button

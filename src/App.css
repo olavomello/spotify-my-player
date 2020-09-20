@@ -83,14 +83,14 @@ header h4:after{
   display: block;
   width:96%;
   margin:0 2%;
-  margin-bottom: 5%;
+  margin-bottom: 17px;
 }
 .Player .Playing{
   height: 70px;
   background: #000;
   border-radius: 5px;
   color:#fff;
-  padding:3% 0;
+  padding:10px 0;
   overflow:hidden;
 }
 .Player .Playing h1 {
@@ -158,15 +158,19 @@ header h4:after{
   transform: rotate(50deg);
   top:-100px;
   left: -130px;
-  opacity: 0.5; 
+  opacity: 0.5;   
 }
+.Player:hover .Playing .Reflex{
+  opacity: 0.7; 
+  left: -100px;
+}
+
 .Player .Cover {
   float: right;
   height: 100%;
   margin: 0px 12px;
   border-radius: 5px;
   border: 1px solid #f0f0f06b;
-  display: inline-block;
   overflow: hidden;
 }
 
@@ -212,7 +216,7 @@ header h4:after{
   font-size:12px;
   background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15449929971988796) 100%);  
   border:1px solid #0000000f;  
-  height:120px;
+  height:130px;
   overflow:auto;
 }
 .Player .Playlist ol li{
