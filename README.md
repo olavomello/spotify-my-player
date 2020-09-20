@@ -23,7 +23,13 @@
 
 ## About project
 
-<p>Consuming Spotify API with React ;)</p>
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">
+    <img src="https://j.gifs.com/yojjNE.gif">
+  </a>
+</p>
+
+<p>My own MP3 Player with React ;)</p>
 <ul>
    <li>Dynamic player</li>
    <li>Playing visor</li>
