@@ -98,7 +98,7 @@ function App() {
     return hours + ":" + minutes + ":" + seconds;
   }
 
-  // Start time ticker
+  // Start timepicker
   function timerStart() {
     var tInter = setInterval(() => {
       try {
