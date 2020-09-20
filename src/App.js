@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Media, Player, controls } from "react-media-player";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -19,12 +19,13 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const [music, setMusic] = useState(0);
+  const [isCompact, setIsCompact] = useState(false);
   let [playingId, setplayingId] = useState(0);
 
   // Fakeplaylist **
   const playlist = [
     {
-      id: 1,
+      id: 0,
       name: "In the Moment of Inspiration",
       url:
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/In-the-Moment-of-Inspiration.mp3",
@@ -32,7 +33,7 @@ function App() {
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Evening100.jpg",
     },
     {
-      id: 2,
+      id: 1,
       name: "Peaceful Dawn",
       url:
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Peaceful-Dawn.mp3",
@@ -40,7 +41,7 @@ function App() {
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Island100.jpg",
     },
     {
-      id: 3,
+      id: 2,
       name: "Photos and Memories",
       url:
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Photos-and-Memories.mp3",
@@ -50,9 +51,11 @@ function App() {
   ];
 
   // Funcs
-  function PlayerPlay() {
-    console.log(playingId);
+  useEffect(() => {
+    PlayerPlay();
+  }, [playingId]);
 
+  function PlayerPlay(id) {
     setMusic(playlist[playingId]);
     setLoading(false);
     setIsPlaying(true);
@@ -61,30 +64,31 @@ function App() {
     setIsPlaying(false);
     setLoading(false);
   }
+  function PlayerSet(id) {
+    setplayingId(id);
+  }
   function PlayerPrev() {
     playingId--;
-    if (playingId <= 0) playingId = playlist.length - 1;
+    if (playingId < 0) playingId = playlist.length - 1;
 
     setplayingId(playingId);
-    PlayerPlay();
   }
   function PlayerNext() {
     playingId++;
-    if (playingId > playlist.length) playingId = 0;
+    if (playingId > playlist.length - 1) playingId = 0;
 
     setplayingId(playingId);
-    PlayerPlay();
   }
 
   return (
     <div className="App">
-      <div className="Player">
+      <div className={isCompact ? "Player Compact" : "Player Full"}>
         <header>
           <h4>My Spotify Player</h4>
         </header>
         <aside>
           <div className="Playing">
-            <h5>{isPlaying ? "Playing" : "Stopped"}</h5>
+            <h5>{isPlaying ? "Playing..." : "Stopped"}</h5>
             {isPlaying ? <img className="Cover" src={music.cover} /> : ""}
             <h2>{isPlaying ? <FontAwesomeIcon icon="music" /> : ""}</h2>
             <h1>{isPlaying ? music.name : isLoading ? "Loading..." : ""}</h1>
@@ -128,12 +132,15 @@ function App() {
             <ol>
               {playlist.map((m, index) => (
                 <li key={index}>
-                  <button onClick={(e) => PlayerPlay(m.id)}>{m.name}</button>
+                  <button onClick={(e) => PlayerSet(m.id)}>{m.name}</button>
                 </li>
               ))}
             </ol>
           </div>
         </aside>
+        <div className="Footer">
+          <button onClick={(e) => setIsCompact(!isCompact)}>||</button>
+        </div>
       </div>
     </div>
   );

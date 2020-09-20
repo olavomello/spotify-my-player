@@ -3,7 +3,7 @@
 @import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p');
 
 *{
-  transition: all 0.3s ease-out;
+  transition: all 0.4s ease-in-out;
 }
 body{
   background:#333;
@@ -16,6 +16,20 @@ body{
   display: flex;
   flex:1;
 }
+
+/* Scroll */
+::-webkit-scrollbar {
+  width: 2px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  outline: 0px solid transparent;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 1px 1px 3px #00000073;
+}
+
 header {
   color:#fff;
   text-shadow: 1px 1px #000000c0;
@@ -60,6 +74,9 @@ header h4:after{
   -moz-box-shadow: inset 0 0 10px #1b8441;
   box-shadow: inset 0 0 10px #1b8441;  
 }
+.Player.Compact{
+  height:150px;
+}
 
 .Player .Playing,
 .Player .Playlist{
@@ -76,10 +93,15 @@ header h4:after{
   padding:3% 0;
   overflow:hidden;
 }
-.Player .Playing h1{
+.Player .Playing h1 {
   position: relative;
   z-index: 5;
-  cursor:pointer;
+  cursor: pointer;
+  width: 75%;
+  font-size: 12px;
+  text-align: left;
+  margin: 15px 11px;
+  display: block;
 }
 .Player .Playing h1:hover{
   color:#3cb567;
@@ -101,9 +123,11 @@ header h4:after{
   position: absolute;
   opacity: 0.5;
 }
-.Player .Playing h6{
-  margin:-72px 70px;
-  right:0;
+.Player .Playing h6 {
+  left: 30px;
+  top: 13px;
+  position: relative;
+  float: left;
 }
 .Player .Playing h2:hover,
 .Player .Playing h3:hover,
@@ -130,7 +154,7 @@ header h4:after{
   position: relative;
   width: 500px;
   height:100px;
-  background:#ffffff10;
+  background: #ffffff30;
   transform: rotate(50deg);
   top:-100px;
   left: -130px;
@@ -138,8 +162,8 @@ header h4:after{
 }
 .Player .Cover {
   float: right;
-  height: 80%;
-  margin: 15px 13px;
+  height: 100%;
+  margin: 0px 12px;
   border-radius: 5px;
   border: 1px solid #f0f0f06b;
   display: inline-block;
@@ -216,4 +240,27 @@ header h4:after{
 }
 .Player Player{
   display:none;
+}
+
+/* Footer */
+.Footer button {
+  top: -9px;
+  position: relative;
+  transform: rotate(90deg);
+  padding: 5px;
+  border: 0px;
+  color: #c0c0c0;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px #0000004a;
+  cursor: pointer;
+  outline: none;
+}
+.Footer button:hover {
+  top: -15px;
+}
+.Player.Compact .Footer button {
+  top: -155px;
+}
+.Player.Compact .Footer button:hover {
+  top: -160px;
 }
