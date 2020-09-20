@@ -14,6 +14,8 @@
 </p>
 
 <p align="center">
+  [![Watch the video](https://youtu.be/c_1CwmLRGpI)](https://youtu.be/c_1CwmLRGpI)
+  <br>
   <a href="#a1-sobre-o-projeto">About project</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/olavo-mello-a6262a72/" target="_blank">About Me</a>
