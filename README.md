@@ -25,11 +25,13 @@
 
 <p>Consuming Spotify API with React ;)</p>
 <ul>
-   <li>Design : Dynamic player</li>
-   <li>Design : Playing visor</li>
-   <li>Design : Playlist</li>
-   <li>Code : Consuming Spotify API</li>
-   <li>Code : Manipulating data</li>
+   <li>Dynamic player</li>
+   <li>Playing visor</li>
+   <li>Playlist</li>
+   <li>Manipulating html5 audio component</li>
+   <li>Creating timepicker</li>
+   <li>Creating progress bar</li>
+   <li>Creating full/compact effect</li>
 </ul>
 
 Made with ♥ by Olavo Mello :wave: [WhatsApp Me](https://wa.me/5516981657459)
