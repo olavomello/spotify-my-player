@@ -2,6 +2,10 @@
 <p align="center">Spotify sometimes is the best company to developers and designer, right ? Why not enjoy this amazing app to learn, coding your onw **Spotify Player Mood** ? Have fun :)</p>
 
 <p align="center">
+  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">
+    <img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/c_1CwmLRGpI">
+  </a>
+  
   <img alt="Coding..." src="https://img.shields.io/badge/last%20modified-today-brightgreen"/>
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/olavomello/spotify-my-player?color=%2304D361">
   <img alt="flat" src="https://img.shields.io/badge/style-flat-green?logo=appveyor&amp;style=flat">
@@ -11,14 +15,11 @@
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
   
-  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">
-    <img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/c_1CwmLRGpI">
-  </a>
 </p>
 
 <p align="center">
 
-  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">Watch on Youtube/a>
+  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">Watch on Youtube</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
   <a href="#a1-sobre-o-projeto">About project</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;    
