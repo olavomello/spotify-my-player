@@ -15,6 +15,7 @@
 
 <p align="center">
   [![Watch the video](https://youtu.be/c_1CwmLRGpI)]
+  [![Watch the video](https://i9.ytimg.com/vi/c_1CwmLRGpI/mq1.jpg?sqp=CKSMnPsF&rs=AOn4CLCWXPqWRsMipZt6EyQAVPSPyKTNkQ)](https://youtu.be/c_1CwmLRGpI)
   <br>
   <a href="#a1-sobre-o-projeto">About project</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
