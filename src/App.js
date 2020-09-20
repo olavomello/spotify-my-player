@@ -19,12 +19,20 @@ function App() {
   const [music, setMusic] = useState(0);
   const [isCompact, setIsCompact] = useState(false);
   let [playingId, setplayingId] = useState(0);
-  let [time, setTime] = useState("00:00:00");
+  let [time, setTime] = useState("00:00:00 / 00:00:00");
 
   // Fakeplaylist **
   const playlist = [
     {
       id: 0,
+      name: "Eastbound",
+      url:
+        "https://api.freeplaymusic.com/media/downloadable/files/link_samples/media/volume/tracks/Soundtrack_Rock_Volume_5/e/a/eastbound.mp3",
+      cover:
+        "https://images-na.ssl-images-amazon.com/images/G/01/digital/video/hero/TVSeries/EastboundAndDown_314237900-PMRS1002-SR._V402163731_SX1080_.jpg",
+    },
+    {
+      id: 1,
       name: "In the Moment of Inspiration",
       url:
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/In-the-Moment-of-Inspiration.mp3",
@@ -32,7 +40,7 @@ function App() {
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Evening100.jpg",
     },
     {
-      id: 1,
+      id: 2,
       name: "Peaceful Dawn",
       url:
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Peaceful-Dawn.mp3",
@@ -40,7 +48,23 @@ function App() {
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Island100.jpg",
     },
     {
-      id: 2,
+      id: 3,
+      name: "I Can Smell Your Creativity",
+      url:
+        "https://api.freeplaymusic.com/media/downloadable/files/link_samples/media/volume/tracks/Sports_News_Volume_2/i/_/i_can_smell_your_creativity_1.mp3",
+      cover:
+        "https://api.freeplaymusic.com/media/playlist/image/s/p/sports_center.jpg",
+    },
+    {
+      id: 4,
+      name: "Always Leaving",
+      url:
+        "https://api.freeplaymusic.com/media/downloadable/files/link_samples/media/volume/tracks/Classic_Country_Volume_1/a/l/always_leaving.mp3",
+      cover:
+        "https://townsquare.media/site/623/files/2015/05/willie-nelson-always-on-my-mind-song-no-1-630x420.jpg?w=980&q=75",
+    },
+    {
+      id: 5,
       name: "Photos and Memories",
       url:
         "https://www.wonderplugin.com/wp-content/uploads/2014/03/Photos-and-Memories.mp3",
@@ -52,7 +76,6 @@ function App() {
   // Funcs
   useEffect(() => {
     PlayerPlay();
-    timerStart();
   }, [playingId]);
 
   // Format
@@ -75,14 +98,23 @@ function App() {
     return hours + ":" + minutes + ":" + seconds;
   }
 
+  // Start time ticker
   function timerStart() {
-    setInterval(() => {
-      const mp3Player = document.getElementById("mp3Player");
+    var tInter = setInterval(() => {
+      try {
+        const mp3Player = document.getElementById("mp3Player");
+        let timeNow = Math.round(mp3Player.currentTime);
+        let timeTotal = Math.round(mp3Player.duration);
+        setTime(timeFormat(timeNow) + " / " + timeFormat(timeTotal));
 
-      let timeNow = Math.round(mp3Player.currentTime);
-      let timeTotal = Math.round(mp3Player.duration);
-
-      setTime(timeFormat(timeNow) + " / " + timeFormat(timeTotal));
+        // Progressbar
+        const progressBar = document.getElementById("ProgressBarNow");
+        let porc = Math.round((timeNow / timeTotal) * 100);
+        progressBar.style.width = porc + "%";
+      } catch (ex) {
+        clearInterval(tInter);
+        setTime("00:00:00 / 00:00:00");
+      }
     }, 1000);
   }
 
@@ -90,6 +122,17 @@ function App() {
     setMusic(playlist[playingId]);
     setLoading(false);
     setIsPlaying(true);
+    timerStart();
+
+    // Set active music
+    playlist.map((m, index) => {
+      var music_active = document.getElementById("music-" + index);
+      if (index == playingId) {
+        music_active.className = "active";
+      } else {
+        music_active.className = "";
+      }
+    });
   }
   function PlayerStop() {
     setIsPlaying(false);
@@ -120,19 +163,28 @@ function App() {
         <aside>
           <div className="Playing">
             <h5>{isPlaying ? "Playing..." : "Stopped"}</h5>
-            {isPlaying ? <img className="Cover" src={music.cover} /> : ""}
+            {isPlaying ? (
+              <div className="Cover">
+                <img src={music.cover} />
+              </div>
+            ) : (
+              ""
+            )}
             <h2>{isPlaying ? <FontAwesomeIcon icon="music" /> : ""}</h2>
             <h1>{isPlaying ? music.name : isLoading ? "Loading..." : ""}</h1>
             <h6>{isPlaying ? time : ""}</h6>
             <div className="Reflex"></div>
+            {isPlaying ? (
+              <div className="ProgressBar" id="ProgressBar">
+                <div id="ProgressBarNow"></div>
+              </div>
+            ) : (
+              ""
+            )}
             {isPlaying ? <audio id="mp3Player" src={music.url} autoPlay /> : ""}
           </div>
           <div className="Nav">
-            <button
-              className="prev"
-              title="Anterior"
-              onClick={(e) => PlayerPrev()}
-            >
+            <button className="prev" title="Prev" onClick={(e) => PlayerPrev()}>
               <FontAwesomeIcon icon="backward" />
             </button>
             {!isPlaying ? (
@@ -152,18 +204,14 @@ function App() {
                 <FontAwesomeIcon icon="stop" />
               </button>
             )}
-            <button
-              className="next"
-              title="Próxima"
-              onClick={(e) => PlayerNext()}
-            >
+            <button className="next" title="Next" onClick={(e) => PlayerNext()}>
               <FontAwesomeIcon icon="forward" />
             </button>
           </div>
           <div className="Playlist">
             <ol>
               {playlist.map((m, index) => (
-                <li key={index}>
+                <li key={index} id={`music-` + index}>
                   <button onClick={(e) => PlayerSet(m.id)}>{m.name}</button>
                 </li>
               ))}

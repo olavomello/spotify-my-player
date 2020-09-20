@@ -165,14 +165,38 @@ header h4:after{
   opacity: 0.7; 
   left: -100px;
 }
-
+/* Progress bar*/
+.ProgressBar {
+  width: 65%;
+  height: 1px;
+  background: #424242;
+  display: block;
+  position: relative;
+  top: -100px;
+  left: 12px;
+  border-radius: 100px;
+}
+.ProgressBar div {
+  content: ".";
+  display: block;
+  width: 0%;
+  height: 1px;
+  background: red;
+  font-size: 0;
+}
 .Player .Cover {
   float: right;
   height: 100%;
+  width: 80px;
   margin: 0px 12px;
   border-radius: 5px;
   border: 1px solid #f0f0f06b;
   overflow: hidden;
+}
+.Player .Cover img {
+  height: 100%;
+  min-width: 100%;
+  max-width: 120%;
 }
 
 /* Nav */
@@ -229,6 +253,10 @@ header h4:after{
 }
 .Player .Playlist ol li:hover{
  opacity: 1;
+}
+.Playlist ol li.active {
+  opacity: 1;
+  font-weight: bold;
 }
 .Player .Playlist ol li button{
   border:0;
