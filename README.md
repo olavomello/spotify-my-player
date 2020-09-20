@@ -10,14 +10,18 @@
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
-
+  
+  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">
+    <img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/c_1CwmLRGpI">
+  </a>
 </p>
 
 <p align="center">
-  [![Watch the video](https://i9.ytimg.com/vi/c_1CwmLRGpI/mq1.jpg?sqp=CKSMnPsF&rs=AOn4CLCWXPqWRsMipZt6EyQAVPSPyKTNkQ)](https://youtu.be/c_1CwmLRGpI)
-  <br>
+
+  <a href="https://www.youtube.com/watch?v=c_1CwmLRGpI">Watch on Youtube/a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
   <a href="#a1-sobre-o-projeto">About project</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;    
   <a href="https://www.linkedin.com/in/olavo-mello-a6262a72/" target="_blank">About Me</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://agenciadix.com.br" target="_blank" title="Agência de Marketing Digital, SEO, SEM e APPS">Agência Dix</a>
