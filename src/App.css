@@ -16,7 +16,6 @@ body{
   display: flex;
   flex:1;
 }
-
 /* Scroll */
 ::-webkit-scrollbar {
   width: 2px;
